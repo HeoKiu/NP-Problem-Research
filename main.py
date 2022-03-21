@@ -8,4 +8,4 @@ def lcs(X, Y, m, n):
 
 X = "AGGTAB"
 Y = "GXTXAYBBCATA"
-print("Length of LCS is ", lcs(X, Y, len(X), len(Y)))
+print("Length of LCS is", lcs(X, Y, len(X), len(Y)))
