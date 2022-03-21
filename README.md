@@ -8,6 +8,5 @@ The LCS has been used to study various areas such as text analysis, pattern reco
 For the general case of an arbitrary number of input sequences, the problem is NP-hard. When the number of sequences is constant, the problem is solvable in polynomial time.
 
 # Proof
-shorturl.at/buB46
-
+[a link](shorturl.at/buB46)
 
