@@ -10,3 +10,5 @@ For the general case of an arbitrary number of input sequences, the problem is N
 # Proof
 [Prove that LCS is NP-complete](https://afnanturky.medium.com/proof-that-longest-common-sequence-lcs-is-np-complete-problem-d62742babfe7)
 
+# Research on Longest Common Subsequence
+In this project, we will implement some algorithms and compare running time and efficiency.
