@@ -1,4 +1,5 @@
-#In this file I implemented new algorithm(Hunt_Szimansky) and compare, test all of three approach I made before.
+#In this file I implemented new algorithm(Hunt_Szimansky) and compare , test all of three approach I made(Dynamic programming, Brute force) before. I also 
+#compare all of my solution with solution from package pylcs
 import time;
 import pylcs;
 def lcs_dp(X, Y):
