@@ -1,3 +1,4 @@
+#In this file I implemented new algorithm(Hunt_Szimansky) and compare, test all of three solution.
 import time;
 import pylcs;
 def lcs_dp(X, Y):
