@@ -1,38 +1,27 @@
-from algorithm import DynamicProgramming
-from algorithm import LcsRecursion
-import sys
-from algorithm import LcsHuntSzimanski
-from algorithm import Wunsch
-from run_time import time_calculate
-import pylcs
-from test import test
+from bruteforce import BruteForceSolution
+from approximation import ApproximateSolution
+from memoization import MemoizationSolution;
+from reverse import ReverseSolution
+import timeit
+import time
+data = []
+with open("testcase/testcase-20.txt") as file:
+    for line in file:
+        line = line.strip()
+        data.append(int(line))
 
-sys.setrecursionlimit(10000)
+target = 10000
+time0 = time.time()
+bf =BruteForceSolution.subsetsum(data, target)
+time1 = time.time()
+so = MemoizationSolution.stackoverflow(data, target)
+time2 = time.time()
+he = ApproximateSolution.approx_with_accounting_and_duplicates(data,target)
+time3 = time.time()
+re = ReverseSolution.solve(target,data)
+time4 = time.time()
 
-def test_all_algorithm(str1, numList):
-    index = 0;
-    for i in numList:
-        if (LcsRecursion.lcs_recursion(str1,str(i),len(str1),len(str(i))) == LcsHuntSzimanski.lcs_Hunt_and_Szymanski(str1,str(i)) == DynamicProgramming.lcs_dp(str1, str(i)) == Wunsch.longestCommonSubsequence(str1, str(i)) == pylcs.lcs(str1, str(i)) ):
-            index += 1;
-            print('Test', index, 'passed');
-        else:
-            index +=1;
-            print('Test', index, 'failed');
-
-numList = []
-
-fileName = "random.txt"
-numFile = open(fileName, 'r')
-
-lines = numFile.read()
-
-linesSplit = lines.split()
-for i in linesSplit:
-    numList.append(int(i))
-numFile.close()
-str1 = "1903481321343214"
-test.test_all_algorithm(str1, numList)
-print(time_calculate.time_recursion(str1,numList))
-print(time_calculate.time_dynamic(str1, numList))
-print(time_calculate.time_szimanski(str1,numList))
-print(time_calculate.time_wunsch(str1,numList))
+print('Brute force:', bf, time1 - time0)
+print('Memoization', so, time2 - time1)
+print('Approximate:', he, time3 - time2)
+print('Reverse:', re, time4 - time3)
