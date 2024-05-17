@@ -1,0 +1,40 @@
+# train args
+output_dir: '../saved_models'
+epochs: 100
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 4
+optim: "adamw_bnb_8bit"
+save_steps: 10
+logging_steps: 10
+learning_rate: 2e-4
+max_grad_norm: 0.3
+max_steps: 200
+warmup_ratio: 0.03
+group_by_length: True
+lr_scheduler_type: "constant"
+fp16: True # ?
+bf16: False # ?
+# logging to wandb
+use_wandb: True
+wandb_run_name: "Finetuning_Llama_alpace_vi"
+
+# model base
+base_model: "bigscience/bloom-7b1" # tensor type F32 F16
+# saved model
+saved_model: 'nguyenanh-qlora/llama-2'
+
+# 4 bit configs
+load_in_4bit: True
+bnb_4bit_quant_type: 'nf4'
+bnb_4bit_compute_dtype: 'compute'
+bnb_4bit_use_double_quant: False
+
+# peft configs
+alpha: 16
+lora_dropout: 0.1
+peft_r: 64
+peft_bias: 'none'
+task_type: 'CAUSAL_LM'
+
+# cache dir
+cache_dir: './caches'
